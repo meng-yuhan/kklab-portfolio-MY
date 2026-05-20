@@ -1,70 +1,91 @@
-(() => {
-  'use strict';
+(function () {
+  const root = document.documentElement;
+  root.classList.add('js-enabled');
 
-  /* ===== テーマ ===== */
-  const html        = document.documentElement;
-  const themeBtn    = document.getElementById('theme-toggle');
-  const THEME_KEY   = 'theme';
+  const langButton = document.querySelector('[data-lang-toggle]');
+  const themeButton = document.querySelector('[data-theme-toggle]');
+  const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  function readStorage(key) {
+    try {
+      return localStorage.getItem(key);
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function writeStorage(key, value) {
+    try {
+      localStorage.setItem(key, value);
+    } catch (error) {
+      // Some local file previews block storage. The page should still render.
+    }
+  }
+
+  function getInitialTheme() {
+    const savedTheme = readStorage('theme');
+    if (savedTheme === 'dark' || savedTheme === 'light') {
+      return savedTheme;
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  function getInitialLanguage() {
+    const savedLang = readStorage('lang');
+    if (savedLang === 'ja' || savedLang === 'en') {
+      return savedLang;
+    }
+    return navigator.language && navigator.language.toLowerCase().startsWith('ja') ? 'ja' : 'en';
+  }
 
   function applyTheme(theme) {
-    html.setAttribute('data-theme', theme);
-    themeBtn.textContent    = theme === 'dark' ? '🌙' : '☀️';
-    themeBtn.setAttribute('aria-pressed', String(theme === 'light'));
-    localStorage.setItem(THEME_KEY, theme);
+    root.dataset.theme = theme;
+    writeStorage('theme', theme);
+    const isDark = theme === 'dark';
+    themeButton.textContent = isDark ? '🌙' : '☀️';
+    themeButton.setAttribute('aria-pressed', String(isDark));
+    themeButton.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
   }
 
-  const savedTheme = localStorage.getItem(THEME_KEY)
-    || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-  applyTheme(savedTheme);
-
-  themeBtn.addEventListener('click', () => {
-    applyTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
-  });
-
-  /* ===== 言語 ===== */
-  const langBtn   = document.getElementById('lang-toggle');
-  const LANG_KEY  = 'lang';
-
-  function applyLang(lang) {
-    html.setAttribute('lang', lang);
-    langBtn.textContent = lang === 'ja' ? 'JP' : 'EN';
-    langBtn.setAttribute('aria-pressed', String(lang === 'en'));
-    localStorage.setItem(LANG_KEY, lang);
-
-    document.querySelectorAll('[data-i18n-jp]').forEach(el => {
-      const text = lang === 'ja'
-        ? el.getAttribute('data-i18n-jp')
-        : el.getAttribute('data-i18n-en');
-      if (text !== null) el.textContent = text;
+  function applyLanguage(lang) {
+    root.lang = lang;
+    writeStorage('lang', lang);
+    document.querySelectorAll('[data-i18n-jp][data-i18n-en]').forEach((element) => {
+      element.textContent = element.dataset[lang === 'ja' ? 'i18nJp' : 'i18nEn'];
     });
+    const isJapanese = lang === 'ja';
+    langButton.textContent = isJapanese ? 'JP' : 'EN';
+    langButton.setAttribute('aria-pressed', String(!isJapanese));
+    langButton.setAttribute('aria-label', isJapanese ? 'Switch language to English' : '日本語に切り替える');
   }
 
-  const savedLang = localStorage.getItem(LANG_KEY)
-    || (navigator.language.startsWith('ja') ? 'ja' : 'en');
-  applyLang(savedLang);
+  function setupReveal() {
+    const targets = Array.from(document.querySelectorAll('.reveal'));
+    if (motionQuery.matches || !('IntersectionObserver' in window)) {
+      targets.forEach((target) => target.classList.add('is-visible'));
+      return;
+    }
 
-  langBtn.addEventListener('click', () => {
-    applyLang(html.getAttribute('lang') === 'ja' ? 'en' : 'ja');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.16 });
+
+    targets.forEach((target) => observer.observe(target));
+  }
+
+  themeButton.addEventListener('click', () => {
+    applyTheme(root.dataset.theme === 'dark' ? 'light' : 'dark');
   });
 
-  /* ===== IntersectionObserver (reveal) ===== */
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  langButton.addEventListener('click', () => {
+    applyLanguage(root.lang === 'ja' ? 'en' : 'ja');
+  });
 
-  if (!prefersReduced) {
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  } else {
-    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
-  }
-
+  applyTheme(getInitialTheme());
+  applyLanguage(getInitialLanguage());
+  setupReveal();
 })();

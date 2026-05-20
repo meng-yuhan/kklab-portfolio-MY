@@ -1,210 +1,158 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{NAME_JP}} / {{NAME_EN}} — Portfolio</title>
-  <meta name="description" content="{{NAME_JP}}（{{NAME_EN}}）のポートフォリオサイト。{{HEADLINE_JP}} / {{HEADLINE_EN}}">
-  <meta property="og:title" content="{{NAME_JP}} / {{NAME_EN}} — Portfolio">
-  <meta property="og:description" content="{{NAME_JP}}（{{NAME_EN}}）のポートフォリオサイト。{{HEADLINE_JP}}">
-  <meta property="og:image" content="{{PHOTO_URL}}">
+  <title>TODO: 日本語名を入れてください / MENG YUHAN — Portfolio</title>
+  <meta name="description" content="MENG YUHANのポートフォリオ。経済学部で会計ファイナンスを学び、AIエージェントを用いたWeb・アプリ制作に取り組んでいます。">
+  <meta property="og:title" content="MENG YUHAN — Portfolio">
+  <meta property="og:description" content="Economics student specializing in Accounting and Finance.">
+  <meta property="og:image" content="profile.jpeg">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://{{GITHUB_USERNAME}}.github.io/">
+  <meta property="og:url" content="https://meng-yuhan.github.io/">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{NAME_JP}} / {{NAME_EN}} — Portfolio">
-  <meta name="twitter:description" content="{{NAME_JP}}（{{NAME_EN}}）のポートフォリオサイト。{{HEADLINE_JP}}">
-  <meta name="twitter:image" content="{{PHOTO_URL}}">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%236366f1'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='system-ui,sans-serif' font-size='16' font-weight='700' fill='white'>{{INITIALS}}</text></svg>">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23494B60'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-family='Arial,sans-serif' font-size='24' font-weight='700' fill='white'%3EMY%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-
+  <a class="skip-link" href="#main" data-i18n-jp="メインコンテンツへスキップ" data-i18n-en="Skip to main content">メインコンテンツへスキップ</a>
   <div class="blob blob-1" aria-hidden="true"></div>
   <div class="blob blob-2" aria-hidden="true"></div>
   <div class="blob blob-3" aria-hidden="true"></div>
 
   <header class="site-header">
     <div class="header-inner">
-      <a href="#hero" class="logo" aria-label="トップへ戻る">{{INITIALS}}</a>
-      <nav aria-label="メインナビゲーション">
-        <ul class="nav-list">
-          <li><a href="#about"      data-i18n-jp="About"      data-i18n-en="About">About</a></li>
-          <li><a href="#projects"   data-i18n-jp="Projects"   data-i18n-en="Projects">Projects</a></li>
-          <li><a href="#experience" data-i18n-jp="経歴"        data-i18n-en="Experience">経歴</a></li>
-          <li><a href="#contact"    data-i18n-jp="Contact"    data-i18n-en="Contact">Contact</a></li>
-        </ul>
+      <a class="logo" href="#hero" aria-label="MENG YUHAN home">MY</a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#about" data-i18n-jp="About" data-i18n-en="About">About</a>
+        <a href="#projects" data-i18n-jp="Projects" data-i18n-en="Projects">Projects</a>
+        <a href="#experience" data-i18n-jp="Experience" data-i18n-en="Experience">Experience</a>
+        <a href="#contact" data-i18n-jp="Contact" data-i18n-en="Contact">Contact</a>
       </nav>
-      <div class="header-controls">
-        <button id="lang-toggle"  aria-label="言語を切り替える" aria-pressed="false">JP</button>
-        <button id="theme-toggle" aria-label="テーマを切り替える" aria-pressed="false">🌙</button>
+      <div class="header-actions" aria-label="Display settings">
+        <button class="toggle-button" type="button" data-lang-toggle aria-label="Switch language to English" aria-pressed="false">JP</button>
+        <button class="toggle-button" type="button" data-theme-toggle aria-label="Switch to light theme" aria-pressed="true">🌙</button>
       </div>
     </div>
   </header>
 
-  <main id="main-content">
-
-    <!-- Hero -->
-    <section id="hero" aria-labelledby="hero-name">
-      <div class="hero-inner">
-        <img
-          src="{{PHOTO_URL}}"
-          alt="{{NAME_JP}}のプロフィール写真"
-          width="160"
-          height="160"
-          class="hero-photo"
-          onerror="this.style.display='none'"
-        >
-        <div class="hero-text">
-          <h1 id="hero-name">
-            <span data-i18n-jp="{{NAME_JP}}" data-i18n-en="{{NAME_EN}}">{{NAME_JP}}</span>
-          </h1>
-          <p class="hero-headline">
-            <span data-i18n-jp="{{HEADLINE_JP}}" data-i18n-en="{{HEADLINE_EN}}">{{HEADLINE_JP}}</span>
-          </p>
-          <div class="hero-cta">
-            <a href="#projects" class="btn btn-primary" data-i18n-jp="Projects を見る" data-i18n-en="View Projects">Projects を見る</a>
-            <a href="#contact"  class="btn btn-outline" data-i18n-jp="Contact"          data-i18n-en="Contact">Contact</a>
+  <main id="main">
+    <section class="section hero-section reveal" id="hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <p class="eyebrow" data-i18n-jp="Portfolio" data-i18n-en="Portfolio">Portfolio</p>
+        <div class="hero-title-row">
+          <h1 id="hero-title">MENG YUHAN</h1>
+          <div class="hero-photo-wrap">
+            <img class="hero-photo" src="profile.jpeg" width="160" height="160" alt="MENG YUHANのプロフィール画像">
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="reveal" aria-labelledby="about-heading">
-      <div class="section-inner">
-        <h2 id="about-heading">
-          <span data-i18n-jp="About" data-i18n-en="About">About</span>
-          <span class="section-underline" aria-hidden="true"></span>
-        </h2>
-        <div class="about-body">
-          <p data-i18n-jp="{{BIO_JP}}" data-i18n-en="{{BIO_EN}}">{{BIO_JP}}</p>
+        <p class="hero-copy" data-i18n-jp="経済学部・会計ファイナンス学科" data-i18n-en="Economics student specializing in Accounting and Finance">経済学部・会計ファイナンス学科</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects" data-i18n-jp="Projects" data-i18n-en="Projects">Projects</a>
+          <a class="button button-secondary" href="#contact" data-i18n-jp="Contact" data-i18n-en="Contact">Contact</a>
         </div>
       </div>
     </section>
 
-    <!-- Skills -->
-    <section id="skills" class="reveal" aria-labelledby="skills-heading">
-      <div class="section-inner">
-        <h2 id="skills-heading">
-          <span data-i18n-jp="スキル" data-i18n-en="Skills">スキル</span>
-          <span class="section-underline" aria-hidden="true"></span>
-        </h2>
-        <!-- TODO: スキルカテゴリと項目を以下のパターンで追加してください -->
-        <div class="skills-group">
+    <section class="section reveal" id="about" aria-labelledby="about-title">
+      <div class="section-heading">
+        <p class="section-kicker" data-i18n-jp="自己紹介" data-i18n-en="About me">自己紹介</p>
+        <h2 id="about-title" data-i18n-jp="About" data-i18n-en="About">About</h2>
+      </div>
+      <div class="about-text">
+        <p data-i18n-jp="私は現在、経済学部に通っている大学3年生で、ゼミでAIエージェントを用いてウェブサイトやアプリの作成について学んでいます。現在はまだ完成している作品はありませんが、自分の生活における不便さに注目し、それを解消できるようなアプリを作成しようと考えています。" data-i18n-en="I am currently a third-year student in the Faculty of Economics, and in my seminar, I am learning how to create websites and applications using AI agents. Although I have not completed any projects yet, I am planning to develop applications that focus on inconveniences in my daily life and help solve them.">私は現在、経済学部に通っている大学3年生で、ゼミでAIエージェントを用いてウェブサイトやアプリの作成について学んでいます。現在はまだ完成している作品はありませんが、自分の生活における不便さに注目し、それを解消できるようなアプリを作成しようと考えています。</p>
+        <p data-i18n-jp="具体的には、個人で日本語のスピーキングの先生をしている経験を活かし、生徒管理や授業管理のためのアプリ開発、また簿記の知識を活かした外貨取引を含む記帳の簡略化ができるアプリを構想中です。" data-i18n-en="Specifically, since I work independently as a Japanese speaking tutor, I am considering developing an app for managing students and lessons, as well as an app that uses my knowledge of bookkeeping to simplify record-keeping, including foreign currency transactions.">具体的には、個人で日本語のスピーキングの先生をしている経験を活かし、生徒管理や授業管理のためのアプリ開発、また簿記の知識を活かした外貨取引を含む記帳の簡略化ができるアプリを構想中です。</p>
+      </div>
+    </section>
+
+    <section class="section reveal" id="skills" aria-labelledby="skills-title">
+      <div class="section-heading">
+        <p class="section-kicker" data-i18n-jp="できること" data-i18n-en="Capabilities">できること</p>
+        <h2 id="skills-title" data-i18n-jp="Skills" data-i18n-en="Skills">Skills</h2>
+      </div>
+      <div class="skills-layout">
+        <div class="skill-group skill-primary">
           <h3 data-i18n-jp="言語" data-i18n-en="Languages">言語</h3>
-          <ul class="badge-list" aria-label="言語スキル">
-            <li class="badge badge-accent" data-i18n-jp="TODO: スキルを追加してください" data-i18n-en="TODO: Add your skills">TODO: スキルを追加してください</li>
+          <ul class="badge-list" aria-label="Language skills">
+            <li data-i18n-jp="中国語" data-i18n-en="Chinese">中国語</li>
           </ul>
         </div>
-        <div class="skills-group">
-          <h3 data-i18n-jp="ツール・フレームワーク" data-i18n-en="Tools &amp; Frameworks">ツール・フレームワーク</h3>
-          <ul class="badge-list" aria-label="ツール・フレームワークスキル">
-            <li class="badge badge-accent2" data-i18n-jp="TODO: スキルを追加してください" data-i18n-en="TODO: Add your skills">TODO: スキルを追加してください</li>
-          </ul>
-        </div>
-        <div class="skills-group">
-          <h3 data-i18n-jp="その他" data-i18n-en="Other">その他</h3>
-          <ul class="badge-list" aria-label="その他スキル">
-            <li class="badge badge-accent3" data-i18n-jp="TODO: スキルを追加してください" data-i18n-en="TODO: Add your skills">TODO: スキルを追加してください</li>
+        <div class="skill-group skill-secondary">
+          <h3 data-i18n-jp="学習中" data-i18n-en="Learning">学習中</h3>
+          <ul class="badge-list" aria-label="Learning skills">
+            <li data-i18n-jp="AIエージェント活用" data-i18n-en="AI agent workflows">AIエージェント活用</li>
+            <li data-i18n-jp="Webサイト制作" data-i18n-en="Website creation">Webサイト制作</li>
+            <li data-i18n-jp="アプリ開発" data-i18n-en="App development">アプリ開発</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- Projects -->
-    <section id="projects" class="reveal" aria-labelledby="projects-heading">
-      <div class="section-inner">
-        <h2 id="projects-heading">
-          <span data-i18n-jp="プロジェクト" data-i18n-en="Projects">プロジェクト</span>
-          <span class="section-underline" aria-hidden="true"></span>
-        </h2>
-        <div class="projects-grid">
-          <!-- TODO: 以下のカードを各プロジェクト分コピーして追加してください -->
-          <article class="project-card reveal">
-            <div class="card-body">
-              <h3 class="card-title" data-i18n-jp="TODO: プロジェクト名を入力してください" data-i18n-en="TODO: Enter project title">TODO: プロジェクト名を入力してください</h3>
-              <p class="card-desc" data-i18n-jp="TODO: プロジェクトの説明を入力してください。" data-i18n-en="TODO: Enter project description.">TODO: プロジェクトの説明を入力してください。</p>
-              <ul class="badge-list card-tech" aria-label="使用技術">
-                <li class="badge badge-accent">TODO: 技術名</li>
-              </ul>
-            </div>
-            <div class="card-links">
-              <a href="{{REPO_URL}}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" data-i18n-jp="GitHub" data-i18n-en="GitHub">GitHub</a>
-              <a href="{{LIVE_URL}}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" data-i18n-jp="Live" data-i18n-en="Live">Live</a>
-            </div>
-          </article>
-        </div>
+    <section class="section reveal" id="projects" aria-labelledby="projects-title">
+      <div class="section-heading">
+        <p class="section-kicker" data-i18n-jp="作品" data-i18n-en="Works">作品</p>
+        <h2 id="projects-title" data-i18n-jp="Projects" data-i18n-en="Projects">Projects</h2>
+      </div>
+      <div class="project-grid">
+        <article class="project-card card-accent-1">
+          <div>
+            <h3 data-i18n-jp="NEBULA SWEETS" data-i18n-en="NEBULA SWEETS">NEBULA SWEETS</h3>
+            <p data-i18n-jp="my-kiro-samples の sweets フォルダで制作した、幻想的なスイーツを紹介するWebページです。" data-i18n-en="A web page from the sweets folder in my-kiro-samples, presenting imaginative sweets with a vivid visual style.">my-kiro-samples の sweets フォルダで制作した、幻想的なスイーツを紹介するWebページです。</p>
+          </div>
+          <ul class="tech-list" aria-label="Technology stack">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+          <div class="project-links">
+            <a class="button button-small" href="https://github.com/meng-yuhan" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="button button-small button-outline" href="my-kiro-samples/sweets/" target="_blank" rel="noopener noreferrer" data-i18n-jp="Live" data-i18n-en="Live">Live</a>
+          </div>
+        </article>
       </div>
     </section>
 
-    <!-- Experience -->
-    <section id="experience" class="reveal" aria-labelledby="experience-heading">
-      <div class="section-inner">
-        <h2 id="experience-heading">
-          <span data-i18n-jp="経歴・学歴" data-i18n-en="Experience">経歴・学歴</span>
-          <span class="section-underline" aria-hidden="true"></span>
-        </h2>
-        <ol class="timeline" aria-label="経歴タイムライン">
-          <!-- TODO: 以下の <li> を各経歴分コピーして追加してください -->
-          <li class="timeline-item reveal">
-            <span class="timeline-year">TODO: 年を入力</span>
-            <div class="timeline-content">
-              <strong data-i18n-jp="TODO: 役職名を入力してください" data-i18n-en="TODO: Enter role">TODO: 役職名を入力してください</strong>
-              <span class="timeline-org" data-i18n-jp="TODO: 所属組織名を入力してください" data-i18n-en="TODO: Enter organization">TODO: 所属組織名を入力してください</span>
-            </div>
-          </li>
-        </ol>
+    <section class="section reveal" id="experience" aria-labelledby="experience-title">
+      <div class="section-heading">
+        <p class="section-kicker" data-i18n-jp="経歴・学歴" data-i18n-en="Experience">経歴・学歴</p>
+        <h2 id="experience-title" data-i18n-jp="Experience" data-i18n-en="Experience">Experience</h2>
+      </div>
+      <div class="timeline" aria-label="Experience timeline">
+        <article class="timeline-item">
+          <time datetime="2024">2024</time>
+          <div>
+            <h3 data-i18n-jp="名古屋市立大学" data-i18n-en="Nagoya City University">名古屋市立大学</h3>
+            <p data-i18n-jp="経済学部" data-i18n-en="Faculty of Economics">経済学部</p>
+          </div>
+        </article>
       </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="reveal" aria-labelledby="contact-heading">
-      <div class="section-inner">
-        <h2 id="contact-heading">
-          <span data-i18n-jp="Contact" data-i18n-en="Contact">Contact</span>
-          <span class="section-underline" aria-hidden="true"></span>
-        </h2>
-        <ul class="contact-list" aria-label="連絡先リンク">
-          <li>
-            <a href="https://github.com/{{GITHUB_USERNAME}}" target="_blank" rel="noopener noreferrer" aria-label="GitHub プロフィール">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
-              </svg>
-              <span data-i18n-jp="GitHub" data-i18n-en="GitHub">GitHub</span>
-            </a>
-          </li>
-          <li>
-            <a href="mailto:{{EMAIL}}" aria-label="メールを送る">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="2" y="4" width="20" height="16" rx="2"/>
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-              </svg>
-              <span>{{EMAIL}}</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://x.com/{{X_HANDLE}}" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter) プロフィール">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-              </svg>
-              <span data-i18n-jp="X (Twitter)" data-i18n-en="X (Twitter)">X (Twitter)</span>
-            </a>
-          </li>
-          <!-- TODO: その他 SNS がある場合は以下のパターンで追加してください -->
-          <!-- <li><a href="{{OTHER_SOCIAL_URL}}" target="_blank" rel="noopener noreferrer" aria-label="TODO: SNS名">SVGアイコン + <span>SNS名</span></a></li> -->
-        </ul>
+    <section class="section contact-section reveal" id="contact" aria-labelledby="contact-title">
+      <div class="section-heading">
+        <p class="section-kicker" data-i18n-jp="連絡先" data-i18n-en="Get in touch">連絡先</p>
+        <h2 id="contact-title" data-i18n-jp="Contact" data-i18n-en="Contact">Contact</h2>
+      </div>
+      <div class="contact-links" aria-label="Contact links">
+        <a href="https://github.com/meng-yuhan" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.42 11.42 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.93.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5Z"/></svg>
+          <span>GitHub</span>
+        </a>
+        <a href="mailto:c243248@ed.nagoya-cu.ac.jp" aria-label="Email MENG YUHAN">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1.5 1.5 0 0 1 1.5 1.5v11A1.5 1.5 0 0 1 21 19H3a1.5 1.5 0 0 1-1.5-1.5v-11A1.5 1.5 0 0 1 3 5Zm.5 3.07v9.43h17V8.07l-8 5.34a1 1 0 0 1-1.1 0l-7.9-5.34Zm15.8-1.07H4.7l7.3 4.87L19.3 7Z"/></svg>
+          <span>Email</span>
+        </a>
+        <a href="#" aria-label="TODO: X profile URL">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.7 10.62 21.24 2h-1.79l-6.54 7.48L7.68 2H1.65l7.91 11.32L1.65 22h1.79l6.91-7.9L15.87 22h6.03l-8.2-11.38Zm-2.45 2.8-.8-1.13L4.08 3.32h2.74l5.14 7.24.8 1.13 6.69 9.43H16.7l-5.45-7.7Z"/></svg>
+          <span data-i18n-jp="TODO: X" data-i18n-en="TODO: X">TODO: X</span>
+        </a>
       </div>
     </section>
-
   </main>
 
   <footer class="site-footer">
-    <p>
-      <span data-i18n-jp="© 2026 {{NAME_EN}}" data-i18n-en="© 2026 {{NAME_EN}}">© 2026 {{NAME_EN}}</span>
-      &nbsp;·&nbsp;
-      <a href="https://github.com/{{GITHUB_USERNAME}}/{{GITHUB_USERNAME}}.github.io" target="_blank" rel="noopener noreferrer" data-i18n-jp="GitHub リポジトリ" data-i18n-en="GitHub Repository">GitHub リポジトリ</a>
-    </p>
+    <p>© 2026 MENG YUHAN</p>
+    <a href="https://github.com/meng-yuhan/meng-yuhan.github.io" target="_blank" rel="noopener noreferrer" data-i18n-jp="GitHub リポジトリ" data-i18n-en="GitHub repository">GitHub リポジトリ</a>
   </footer>
 
   <script src="script.js"></script>
